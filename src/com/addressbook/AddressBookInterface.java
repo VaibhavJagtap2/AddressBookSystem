@@ -7,4 +7,5 @@ public interface AddressBookInterface {
     public void printAllDetails();
     public HashMap<Long,ContactDetail> updateValue(long key, ContactDetail AddressBook);
     public void deleteAddress(long key);
+    public void sortByfirstName();
 }

@@ -13,7 +13,8 @@ public class MainClass {
             System.out.println("1. for add new Address");
             System.out.println("2.: Print ALl information");
             System.out.println("3.: Update the Information");
-            System.out.println("4. Number to Delete");
+            System.out.println("4.: Number to Delete");
+            System.out.println("5.: To Sort The Contacts By First Name");
             int option = scan.nextInt();
             switch (option){
                 case 1:
@@ -33,6 +34,9 @@ public class MainClass {
                     System.out.println("Enter Number To Delete");
                     long phoneToDelete = scan.nextLong();
                     bookOperations.deleteAddress(phoneToDelete);
+                    break;
+                case 5:
+                    bookOperations.sortByfirstName();
                     break;
                 default:
                     System.out.println("Please Select valid option");
