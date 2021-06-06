@@ -1,7 +1,6 @@
 package com.addressbook;
 
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class BookOperations implements AddressBookInterface{
     HashMap<Long, ContactDetail> addressBookContainer = new HashMap<Long, ContactDetail>();
@@ -38,6 +37,15 @@ public class BookOperations implements AddressBookInterface{
         newAddressBook.setPhone(phone);
         return newAddressBook;
     }
-
+    @Override
+    public void printAllDetails(){
+        Set keys = addressBookContainer.keySet();
+        Iterator iterate = keys.iterator();
+        Collection<ContactDetail> getValues = addressBookContainer.values();
+        iterate = getValues.iterator();
+        while (iterate.hasNext()){
+            System.out.println("Details are : " + iterate.next());
+        }
+    }
 }
 

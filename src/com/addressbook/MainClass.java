@@ -11,11 +11,15 @@ public class MainClass {
          boolean terminate = false;
          while (terminate != true) {
              System.out.println("1. for add new Address");
+             System.out.println("2.: Print ALl information");
              int option = scan.nextInt();
              switch (option){
                  case 1:
                      contactPerson = bookOperations.newAddressBook();
                      System.out.println(bookOperations.save(contactPerson.getPhone(),contactPerson));
+                     break;
+                 case 2:
+                     bookOperations.printAllDetails();
                      break;
 
                  default:
