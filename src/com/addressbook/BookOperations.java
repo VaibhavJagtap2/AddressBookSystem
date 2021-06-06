@@ -2,7 +2,7 @@ package com.addressbook;
 
 import java.util.*;
 
-public class BookOperations implements AddressBookInterface{
+public class BookOperations implements AddressBookInterface {
     HashMap<Long, ContactDetail> addressBookContainer = new HashMap<Long, ContactDetail>();
     Scanner input = new Scanner(System.in);
 
@@ -37,36 +37,69 @@ public class BookOperations implements AddressBookInterface{
         newAddressBook.setPhone(phone);
         return newAddressBook;
     }
+
     @Override
-    public void printAllDetails(){
+    public void printAllDetails() {
         Set keys = addressBookContainer.keySet();
         Iterator iterate = keys.iterator();
         Collection<ContactDetail> getValues = addressBookContainer.values();
         iterate = getValues.iterator();
-        while (iterate.hasNext()){
+        while (iterate.hasNext()) {
             System.out.println("Details are : " + iterate.next());
         }
     }
+
     @Override
-    public HashMap updateValue(long key, ContactDetail newaddressBook){
-        if(addressBookContainer.containsKey(key) == false){
+    public HashMap updateValue(long key, ContactDetail newaddressBook) {
+        if (addressBookContainer.containsKey(key) == false) {
             System.out.println("Key Not Found");
-        }
-        else if (addressBookContainer.containsKey(key) == true){
+        } else if (addressBookContainer.containsKey(key) == true) {
             addressBookContainer.put(key, newaddressBook);
             System.out.println("Values Updated");
         }
         return addressBookContainer;
     }
+
     @Override
-    public void deleteAddress(long key){
-        if (addressBookContainer.containsKey(key) == false){
+    public void deleteAddress(long key) {
+        if (addressBookContainer.containsKey(key) == false) {
             System.out.println("Invalid Key !!!!");
-        }
-        else {
+        } else {
             addressBookContainer.remove(key);
             System.out.println(key + "Delete Successfully");
         }
+
+    }
+
+    @Override
+    public void sortByfirstName() {
+        List<ContactDetail> value = new ArrayList<>();
+        if (addressBookContainer != null) {
+            value.addAll(addressBookContainer.values());
+            Collections.sort(value, new Comparator<ContactDetail>() {
+                public int compare(ContactDetail Person1, ContactDetail Person2) {
+                    return Person1.getFirstName().compareTo(Person2.getFirstName());
+                }
+            });
+        }
+        for (ContactDetail valueList : value) {
+            System.out.println(valueList);
+        }
+    }
+    @Override
+    public void sortByZip(){
+        List<ContactDetail> value = new ArrayList<>();
+        if (addressBookContainer != null) {
+            value.addAll(addressBookContainer.values());
+
+            Collections.sort(value, new Comparator<ContactDetail>() {
+                public int compare(ContactDetail Person1, ContactDetail Person2) {
+                    return Person1.getZip() - Person2.getZip();
+                }
+            });
+        }
+        for (ContactDetail sortedValue : value) {
+            System.out.println(sortedValue);
+        }
     }
 }
-
