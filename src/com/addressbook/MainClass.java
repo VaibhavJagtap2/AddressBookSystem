@@ -12,6 +12,7 @@ public class MainClass {
          while (terminate != true) {
              System.out.println("1. for add new Address");
              System.out.println("2.: Print ALl information");
+             System.out.println("3.: Update the Information");
              int option = scan.nextInt();
              switch (option){
                  case 1:
@@ -20,6 +21,12 @@ public class MainClass {
                      break;
                  case 2:
                      bookOperations.printAllDetails();
+                     break;
+                 case 3:
+                     System.out.println("Enter the Phone  Number to update:");
+                     long key = scan.nextLong();
+                     contactPerson = bookOperations.newAddressBook();
+                     bookOperations.updateValue(key, contactPerson);
                      break;
 
                  default:
