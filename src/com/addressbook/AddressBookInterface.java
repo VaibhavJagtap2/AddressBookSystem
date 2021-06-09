@@ -10,4 +10,6 @@ public interface AddressBookInterface {
     public void sortByfirstName();
     public void sortByZip();
     public void searchByCity(String city, ContactDetail addressBook);
+    public void searchByState(String inputState, ContactDetail addressBook);
+
 }

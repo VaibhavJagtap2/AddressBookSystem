@@ -121,4 +121,19 @@ public class BookOperations implements AddressBookInterface {
         }
 
     }
+
+    public void searchByState(String inputState, ContactDetail addressBook) {
+         Set keys = addressBookContainer.keySet();
+         Iterator iterate = keys.iterator();
+         Collection<ContactDetail> getValues = addressBookContainer.values();
+         iterate = getValues.iterator();
+         while (iterate.hasNext()){
+             System.out.println(addressBook.getState() +" "+ inputState);
+             if (addressBook.getState().equals(inputState)){
+                 System.out.println("Details are : "+ addressBook.getFirstName()+" "+addressBook.getLastName()+" "+addressBook.getPhone()+" "+addressBook.getCity()+" "+addressBook.getZip());
+             }
+             iterate.hasNext();
+             break;
+         }
+    }
 }

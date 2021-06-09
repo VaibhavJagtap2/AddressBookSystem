@@ -17,6 +17,7 @@ public class MainClass {
             System.out.println("5.: To Sort The Contacts By First Name");
             System.out.println("6.: To Sort By Zip ");
             System.out.println("7.: Search by City");
+            System.out.println("8.: Search Cy State");
             int option = scan.nextInt();
             switch (option){
                 case 1:
@@ -47,6 +48,11 @@ public class MainClass {
                     System.out.println("enter the City to Search");
                     String inputcity = scan.next();
                     bookOperations.searchByCity(inputcity,contactPerson);
+                    break;
+                case 8:
+                    System.out.println("Enter the State to Search");
+                    String inputState = scan.next();
+                    bookOperations.searchByState(inputState,contactPerson);
                     break;
                     default:
                     System.out.println("Please Select valid option");
