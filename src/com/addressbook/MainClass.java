@@ -16,6 +16,7 @@ public class MainClass {
             System.out.println("4.: Number to Delete");
             System.out.println("5.: To Sort The Contacts By First Name");
             System.out.println("6.: To Sort By Zip ");
+            System.out.println("7.: Search by City");
             int option = scan.nextInt();
             switch (option){
                 case 1:
@@ -41,9 +42,16 @@ public class MainClass {
                     break;
                 case 6:
                     bookOperations.sortByZip();
+                    break;
+                case 7:
+                    System.out.println("enter the City to Search");
+                    String inputcity = scan.next();
+                    bookOperations.searchByCity(inputcity,contactPerson);
+                    break;
                     default:
                     System.out.println("Please Select valid option");
                     break;
+
             }
         }
     }

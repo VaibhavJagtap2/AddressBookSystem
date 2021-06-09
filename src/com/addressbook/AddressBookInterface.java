@@ -9,4 +9,5 @@ public interface AddressBookInterface {
     public void deleteAddress(long key);
     public void sortByfirstName();
     public void sortByZip();
+    public void searchByCity(String city, ContactDetail addressBook);
 }
